@@ -25,7 +25,7 @@ function TripPlanner() {
 
   return (
     <div >
-    <div className="bg-[#EFFFFE] flex flex-col justify-around p-6 max-w-[400px] mx-auto h-screen rounded-xl shadow-lg space-y-4">
+    <div className="bg-[#EFFFFE] flex flex-col justify-around p-6 max-w-[400px] mx-auto h-screen shadow-lg space-y-4">
       <h2 className="text-center font-semibold">Number of travellers</h2>
       <div className="flex items-center justify-between border-2 border-black rounded-full px-4 py-2">
         <button
@@ -89,7 +89,7 @@ function TripPlanner() {
 
       <button
         onClick={handleSubmit}
-        className="w-full bg-teal-400 text-black font-bold py-2 rounded-full hover:bg-teal-500 transition cursor-pointer"
+        className="w-full bg-green-300 text-black font-bold py-2 rounded-full border-3 border-black hover:bg-green-500 transition cursor-pointer"
       >
         Plan my Trip!
       </button>

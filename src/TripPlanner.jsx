@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 
-function TripPlanner() {
+
+function TripPlanner( {fetchData, setTripDetails, setLoading} ) {
   const [travellers, setTravellers] = useState(1);
   const [fromCity, setFromCity] = useState("New York City");
   const [toCity, setToCity] = useState("Paris");
-  const [fromDate, setFromDate] = useState("2023-11-24");
-  const [toDate, setToDate] = useState("2023-12-05");
+  const [fromDate, setFromDate] = useState("2025-07-05");
+  const [toDate, setToDate] = useState("2025-07-09");
   const [budget, setBudget] = useState(5000);
 
   const handleTravellersChange = (delta) => {
     setTravellers((prev) => Math.max(1, prev + delta));
   };
 
-  const handleSubmit = () => {
-    console.log({
-      travellers,
-      fromCity,
-      toCity,
-      fromDate,
-      toDate,
-      budget,
-    });
+  const userInputs = {
+    travellers: travellers,
+    fromCity: fromCity,
+    toCity: toCity,
+    fromDate: fromDate,
+    toDate: toDate,
+    budget: budget
+  } 
+  
+
+  const handleSubmit = async () => {
+    console.log(userInputs)
+    setLoading(true)
+    const result = await fetchData(userInputs);
+    // console.log(result)
+    setTripDetails(result)
   };
 
   return (

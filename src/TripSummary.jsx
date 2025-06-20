@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-function TripSummary() {
+function TripSummary( {tripDetails} ) {
   return (
     <div className="bg-[#EFFFFE] mx-auto min-h-screen max-w-[400px] flex flex-col items-center px-4 py-6 space-y-6 font-sans">
       <h1 className="text-3xl font-bold">Your Trip</h1>

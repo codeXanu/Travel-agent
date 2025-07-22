@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 
-function TripPlanner( {fetchData, setTripDetails, setLoading} ) {
+function TripPlanner( {fetchData, setTripDetails, setLoading, setGivenData} ) {
   const [travellers, setTravellers] = useState(1);
-  const [fromCity, setFromCity] = useState("New York City");
-  const [toCity, setToCity] = useState("Paris");
+  const [fromCity, setFromCity] = useState("Delhi");
+  const [toCity, setToCity] = useState("Mumbai");
   const [fromDate, setFromDate] = useState("2025-07-05");
   const [toDate, setToDate] = useState("2025-07-09");
   const [budget, setBudget] = useState(5000);
@@ -25,10 +25,12 @@ function TripPlanner( {fetchData, setTripDetails, setLoading} ) {
 
   const handleSubmit = async () => {
     console.log(userInputs)
+    setGivenData(userInputs)
     setLoading(true)
     const result = await fetchData(userInputs);
     // console.log(result)
     setTripDetails(result)
+    setLoading(false)
   };
 
   return (

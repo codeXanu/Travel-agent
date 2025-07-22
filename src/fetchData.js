@@ -4,12 +4,12 @@ export default async function fetchData(userInputs) {
   try {
     // 🔁 Run both API calls in parallel
     const [res1, res2] = await Promise.all([
-      fetch("http://localhost:3000/api/ask", {
+      fetch("https://travel-agent-zyca3.ondigitalocean.app/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body,
       }),
-      fetch("http://localhost:3000/api/details", {
+      fetch("https://travel-agent-zyca3.ondigitalocean.app/api/details", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body,
@@ -29,14 +29,14 @@ export default async function fetchData(userInputs) {
     if (data1.success && data2.success) {
       return {
         success: true,
-        recommendation: data1,
-        suggestion: data2,
+        data1: data1,
+        data2: data2,
       };
     } else {
       return {
         success: false,
-        recommendation: data1 || null,
-        suggestion: data2 || null,
+        data1: data1 || null,
+        data2: data2 || null,
         error: "One of the APIs returned an error",
       };
     }
@@ -45,8 +45,8 @@ export default async function fetchData(userInputs) {
 
     return {
       success: false,
-      recommendation: null,
-      suggestion: null,
+      data1: null,
+      data2: null,
       error: error.message,
     };
   }

@@ -24,7 +24,7 @@ function TripPlanner( {fetchData, setTripDetails, setLoading, setGivenData} ) {
   
 
   const handleSubmit = async () => {
-    console.log(userInputs)
+    // console.log(userInputs)
     setGivenData(userInputs)
     setLoading(true)
     const result = await fetchData(userInputs);
